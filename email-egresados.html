@@ -203,10 +203,11 @@
 
         <!-- ================================================ -->
         <!--  4. SECCIÓN CTA  –  Dos recuadros con botones    -->
-        <!--     DISEÑO OPCIÓN A:                              -->
-        <!--     • Fondo de sección: blanco (#ffffff)          -->
-        <!--     • Cajas: línea roja #d10023 en borde superior -->
-        <!--              + borde gris claro en los demás lados-->
+        <!--     Diseño: fondo blanco, línea roja superior     -->
+        <!--     TRUCO DE ALINEACIÓN: cada caja usa una tabla  -->
+        <!--     interna de 3 filas (ícono / texto / botón).   -->
+        <!--     La fila de texto tiene height fijo (52px) para -->
+        <!--     que ambos botones siempre queden al mismo nivel-->
         <!-- ================================================ -->
         <tr>
           <td bgcolor="#ffffff"
@@ -222,47 +223,66 @@
                            border-right: 1px solid #e0e0e0;
                            border-bottom: 1px solid #e0e0e0;
                            border-left: 1px solid #e0e0e0;
-                           padding: 26px 18px 24px 18px;
                            text-align: center;">
 
-                  <!-- Ícono de personas / comunidad -->
-                  <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/3b6b5f2c-3b18-45aa-a48e-47b9e16ee5df.png"
-                       alt="Comunidad IBERO"
-                       width="56"
-                       style="width: 56px; height: auto; margin: 0 auto 14px auto;" />
+                  <!-- Tabla interna: distribuye ícono / texto (h fijo) / botón -->
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 
-                  <!-- Texto descriptivo -->
-                  <p style="font-family: Arial, Helvetica, sans-serif;
-                            font-size: 13px;
-                            color: #444444;
-                            line-height: 1.5;
-                            margin: 0 0 20px 0;">
-                    Sigamos en contacto
-                  </p>
-
-                  <!-- Botón CTA 1: Actualizar información
-                       Uso de tabla para compatibilidad con Outlook -->
-                  <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0">
+                    <!-- Fila 1: Ícono de personas / comunidad (72px) -->
                     <tr>
-                      <td bgcolor="#d10023"
-                          style="background-color: #d10023; border-radius: 3px;">
-                        <a href="https://portalegresados.ibero.mx/auth/login"
-                           target="_blank"
-                           style="display: inline-block;
-                                  font-family: Arial, Helvetica, sans-serif;
-                                  font-size: 11px;
-                                  font-weight: bold;
-                                  color: #ffffff;
-                                  text-decoration: none;
-                                  letter-spacing: 0.8px;
-                                  padding: 11px 18px;">
-                          <!--[if mso]>&nbsp;<![endif]-->
-                          ACTUALIZAR INFORMACIÓN
-                          <!--[if mso]>&nbsp;<![endif]-->
-                        </a>
+                      <td align="center" style="padding: 28px 16px 14px 16px;">
+                        <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/3b6b5f2c-3b18-45aa-a48e-47b9e16ee5df.png"
+                             alt="Comunidad IBERO"
+                             width="72"
+                             style="width: 72px; height: auto;" />
                       </td>
                     </tr>
+
+                    <!-- Fila 2: Texto (height fijo 52px para igualar con caja 2) -->
+                    <tr>
+                      <td align="center" height="52" valign="top"
+                          style="height: 52px; vertical-align: top;
+                                 padding: 0 16px 0 16px;">
+                        <p style="font-family: Arial, Helvetica, sans-serif;
+                                  font-size: 13px;
+                                  color: #444444;
+                                  line-height: 1.5;
+                                  margin: 0;">
+                          Sigamos en contacto
+                        </p>
+                      </td>
+                    </tr>
+
+                    <!-- Fila 3: Botón CTA (siempre al mismo nivel que caja 2) -->
+                    <tr>
+                      <td align="center" style="padding: 16px 16px 28px 16px;">
+                        <table role="presentation" align="center" cellpadding="0"
+                               cellspacing="0" border="0">
+                          <tr>
+                            <td bgcolor="#d10023"
+                                style="background-color: #d10023; border-radius: 3px;">
+                              <a href="https://portalegresados.ibero.mx/auth/login"
+                                 target="_blank"
+                                 style="display: inline-block;
+                                        font-family: Arial, Helvetica, sans-serif;
+                                        font-size: 11px;
+                                        font-weight: bold;
+                                        color: #ffffff;
+                                        text-decoration: none;
+                                        letter-spacing: 0.8px;
+                                        padding: 11px 18px;">
+                                <!--[if mso]>&nbsp;<![endif]-->
+                                ACTUALIZAR INFORMACIÓN
+                                <!--[if mso]>&nbsp;<![endif]-->
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
                   </table>
+                  <!-- FIN: Tabla interna caja 1 -->
 
                 </td>
                 <!-- FIN: Caja 1 -->
@@ -278,46 +298,66 @@
                            border-right: 1px solid #e0e0e0;
                            border-bottom: 1px solid #e0e0e0;
                            border-left: 1px solid #e0e0e0;
-                           padding: 26px 18px 24px 18px;
                            text-align: center;">
 
-                  <!-- Ícono de credencial / portal -->
-                  <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/25e07ab2-a070-4930-b1b5-46d6e454aac9.png"
-                       alt="Portal Egresados IBERO"
-                       width="56"
-                       style="width: 56px; height: auto; margin: 0 auto 14px auto;" />
+                  <!-- Tabla interna: distribuye ícono / texto (h fijo) / botón -->
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 
-                  <!-- Texto descriptivo -->
-                  <p style="font-family: Arial, Helvetica, sans-serif;
-                            font-size: 13px;
-                            color: #444444;
-                            line-height: 1.5;
-                            margin: 0 0 20px 0;">
-                    Descubre actividades,<br />noticias y oportunidades
-                  </p>
-
-                  <!-- Botón CTA 2: Visita nuestro portal -->
-                  <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0">
+                    <!-- Fila 1: Ícono de credencial / portal (72px) -->
                     <tr>
-                      <td bgcolor="#d10023"
-                          style="background-color: #d10023; border-radius: 3px;">
-                        <a href="https://egresados.ibero.mx/"
-                           target="_blank"
-                           style="display: inline-block;
-                                  font-family: Arial, Helvetica, sans-serif;
-                                  font-size: 11px;
-                                  font-weight: bold;
-                                  color: #ffffff;
-                                  text-decoration: none;
-                                  letter-spacing: 0.8px;
-                                  padding: 11px 18px;">
-                          <!--[if mso]>&nbsp;<![endif]-->
-                          VISITA NUESTRO PORTAL
-                          <!--[if mso]>&nbsp;<![endif]-->
-                        </a>
+                      <td align="center" style="padding: 28px 16px 14px 16px;">
+                        <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/25e07ab2-a070-4930-b1b5-46d6e454aac9.png"
+                             alt="Portal Egresados IBERO"
+                             width="72"
+                             style="width: 72px; height: auto;" />
                       </td>
                     </tr>
+
+                    <!-- Fila 2: Texto (height fijo 52px = alineado con caja 1) -->
+                    <tr>
+                      <td align="center" height="52" valign="top"
+                          style="height: 52px; vertical-align: top;
+                                 padding: 0 16px 0 16px;">
+                        <p style="font-family: Arial, Helvetica, sans-serif;
+                                  font-size: 13px;
+                                  color: #444444;
+                                  line-height: 1.5;
+                                  margin: 0;">
+                          Descubre actividades,<br />noticias y oportunidades
+                        </p>
+                      </td>
+                    </tr>
+
+                    <!-- Fila 3: Botón CTA (siempre al mismo nivel que caja 1) -->
+                    <tr>
+                      <td align="center" style="padding: 16px 16px 28px 16px;">
+                        <table role="presentation" align="center" cellpadding="0"
+                               cellspacing="0" border="0">
+                          <tr>
+                            <td bgcolor="#d10023"
+                                style="background-color: #d10023; border-radius: 3px;">
+                              <a href="https://egresados.ibero.mx/"
+                                 target="_blank"
+                                 style="display: inline-block;
+                                        font-family: Arial, Helvetica, sans-serif;
+                                        font-size: 11px;
+                                        font-weight: bold;
+                                        color: #ffffff;
+                                        text-decoration: none;
+                                        letter-spacing: 0.8px;
+                                        padding: 11px 18px;">
+                                <!--[if mso]>&nbsp;<![endif]-->
+                                VISITA NUESTRO PORTAL
+                                <!--[if mso]>&nbsp;<![endif]-->
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
                   </table>
+                  <!-- FIN: Tabla interna caja 2 -->
 
                 </td>
                 <!-- FIN: Caja 2 -->
@@ -420,25 +460,6 @@
                   </a>
                 </td>
 
-                <!-- YouTube -->
-                <td style="padding: 0 7px;">
-                  <a href="https://www.youtube.com/IberoMexico" target="_blank"
-                     style="text-decoration: none;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                      <tr>
-                        <td width="36" height="36" align="center" valign="middle"
-                            bgcolor="#3A3A3A"
-                            style="background-color: #3A3A3A; border-radius: 50%;
-                                   width: 36px; height: 36px;
-                                   font-family: Arial, Helvetica, sans-serif;
-                                   font-size: 10px; font-weight: bold;
-                                   color: #ffffff; text-align: center;">
-                          YT
-                        </td>
-                      </tr>
-                    </table>
-                  </a>
-                </td>
 
               </tr>
             </table>
