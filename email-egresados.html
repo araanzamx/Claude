@@ -1,272 +1,532 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ibero Egresados</title>
+  <meta name="x-apple-disable-message-reformatting" />
+  <title>¡Feliz Cumpleaños! | IBERO Egresados</title>
+
   <!--[if mso]>
-  <noscript>
-    <xml>
-      <o:OfficeDocumentSettings>
-        <o:PixelsPerInch>96</o:PixelsPerInch>
-      </o:OfficeDocumentSettings>
-    </xml>
-  </noscript>
+  <noscript><xml><o:OfficeDocumentSettings>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings></xml></noscript>
   <![endif]-->
+
   <style type="text/css">
-    /* Reset básico para clientes de correo */
-    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-    img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
-    body { margin: 0; padding: 0; background-color: #f4f4f4; }
+    /* === RESET GLOBAL (necesario para todos los clientes) === */
+    body, table, td, a, p, span, div {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    table, td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+      border-collapse: collapse;
+    }
+    img {
+      -ms-interpolation-mode: bicubic;
+      border: 0;
+      outline: none;
+      text-decoration: none;
+      display: block;
+    }
+    body {
+      background-color: #f4f0ec;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-    /* Estilo para links */
-    a { color: #8B0000; }
-
-    /* Responsive para móviles */
-    @media only screen and (max-width: 600px) {
-      .email-wrapper { width: 100% !important; }
-      .logo-ibero { width: 100px !important; }
-      .logo-egresados { width: 120px !important; }
-      .hero-image img { width: 100% !important; height: auto !important; }
-      .icono-texto td { display: block !important; width: 100% !important; text-align: center !important; }
+    /* === RESPONSIVE MÓVIL === */
+    @media only screen and (max-width: 620px) {
+      .email-container { width: 100% !important; max-width: 100% !important; }
+      .col-half       { display: block !important; width: 100% !important; }
+      .col-half td    { width: 100% !important; }
+      .btn-cta        { width: 90% !important; }
+      .hide-mobile    { display: none !important; }
+      .padding-mobile { padding: 20px 16px !important; }
+      .font-hero      { font-size: 28px !important; }
     }
   </style>
 </head>
 
-<body style="margin: 0; padding: 0; background-color: #f4f4f4;">
+<body style="background-color: #f4f0ec; margin: 0; padding: 0;">
 
-  <!-- ========================================================== -->
-  <!-- TABLA CONTENEDOR PRINCIPAL (centrada, 600px de ancho)       -->
-  <!-- ========================================================== -->
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
-         style="background-color: #f4f4f4;">
-    <tr>
-      <td align="center" style="padding: 20px 10px;">
-
-        <!-- Caja principal del correo -->
-        <table class="email-wrapper" role="presentation" width="600" cellpadding="0"
-               cellspacing="0" border="0"
-               style="background-color: #ffffff; max-width: 600px; width: 100%;">
+<!-- ============================================================ -->
+<!--  TABLA WRAPPER EXTERIOR (fondo general del correo)           -->
+<!-- ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="background-color: #f4f0ec;">
+  <tr>
+    <td align="center" style="padding: 20px 10px;">
 
 
-          <!-- ================================================ -->
-          <!-- 1. CINTILLA ROJA: Logos Ibero y Egresados         -->
-          <!-- ================================================ -->
-          <tr>
-            <td style="background-color: #8B0000; padding: 12px 20px;">
-
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-
-                  <!-- Logo Ibero (izquierda) -->
-                  <td align="left" valign="middle" style="padding: 0;">
-                    <img class="logo-ibero"
-                         src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/3ddfa8a0-f350-4380-9400-64f9d5629344.png"
-                         alt="Universidad Iberoamericana"
-                         width="120"
-                         style="display: block; height: auto; max-width: 120px;" />
-                  </td>
-
-                  <!-- Logo Egresados (derecha) -->
-                  <td align="right" valign="middle" style="padding: 0;">
-                    <img class="logo-egresados"
-                         src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/4ba04647-eace-4d94-bb4b-0d0a1e312552.png"
-                         alt="Egresados Ibero"
-                         width="140"
-                         style="display: block; height: auto; max-width: 140px;" />
-                  </td>
-
-                </tr>
-              </table>
-
-            </td>
-          </tr>
-          <!-- FIN: Cintilla roja -->
+      <!-- ====================================================== -->
+      <!--  CONTENEDOR PRINCIPAL DEL CORREO (600 px de ancho)     -->
+      <!-- ====================================================== -->
+      <table class="email-container" role="presentation" width="600" cellpadding="0"
+             cellspacing="0" border="0"
+             style="max-width: 600px; width: 100%; background-color: #ffffff;">
 
 
-          <!-- ================================================ -->
-          <!-- 2. IMAGEN PRINCIPAL "NECESITO"                    -->
-          <!-- ================================================ -->
-          <tr>
-            <td class="hero-image" align="center" style="padding: 0; line-height: 0;">
-              <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/24ae7700-b7db-40b6-afbd-35f821c9de50.jpg"
-                   alt="Necesito"
-                   width="600"
-                   style="display: block; width: 100%; max-width: 600px; height: auto;" />
-            </td>
-          </tr>
-          <!-- FIN: Imagen principal -->
+        <!-- ================================================== -->
+        <!--  1. HEADER: Cintilla roja con logos                 -->
+        <!-- ================================================== -->
+        <tr>
+          <td bgcolor="#A31F2D"
+              style="background-color: #A31F2D; padding: 14px 24px;">
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+
+                <!-- Logo IBERO (izquierda) -->
+                <td align="left" valign="middle">
+                  <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/3ddfa8a0-f350-4380-9400-64f9d5629344.png"
+                       alt="IBERO" width="110"
+                       style="width: 110px; max-width: 110px; height: auto;" />
+                </td>
+
+                <!-- Logo Egresadas / Egresados (derecha) -->
+                <td align="right" valign="middle">
+                  <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/4ba04647-eace-4d94-bb4b-0d0a1e312552.png"
+                       alt="Egresadas Egresados" width="130"
+                       style="width: 130px; max-width: 130px; height: auto;" />
+                </td>
+
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+        <!-- FIN: Header -->
 
 
-          <!-- ================================================ -->
-          <!-- 3. SECCIÓN DE ICONOS / BENEFICIOS                 -->
-          <!-- ================================================ -->
-          <tr>
-            <td style="background-color: #ffffff; padding: 30px 30px 20px 30px;">
+        <!-- ================================================== -->
+        <!--  2. IMAGEN HERO: ¡Feliz cumpleaños!                 -->
+        <!--     (Banner con imagen del campus / escultura IBERO)-->
+        <!-- ================================================== -->
+        <tr>
+          <td align="center" style="padding: 0; line-height: 0; font-size: 0;">
+            <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/24ae7700-b7db-40b6-afbd-35f821c9de50.jpg"
+                 alt="¡Feliz cumpleaños! Hoy celebramos tu cumpleaños y también el camino que has construido desde la IBERO."
+                 width="600"
+                 style="width: 100%; max-width: 600px; height: auto;" />
+          </td>
+        </tr>
+        <!-- FIN: Imagen hero -->
 
-              <!-- Subtítulo de la sección -->
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td align="center"
-                      style="font-family: Arial, Helvetica, sans-serif;
-                             font-size: 18px;
-                             font-weight: bold;
-                             color: #8B0000;
-                             padding-bottom: 20px;">
-                    ¿Qué necesitas?
-                  </td>
-                </tr>
-              </table>
 
-              <!-- Fila de iconos -->
-              <table class="icono-texto" role="presentation" width="100%"
-                     cellpadding="0" cellspacing="0" border="0">
-                <tr>
+        <!-- ================================================== -->
+        <!--  3. CUERPO DEL CORREO: Texto personalizado          -->
+        <!-- ================================================== -->
+        <tr>
+          <td class="padding-mobile"
+              style="background-color: #ffffff; padding: 36px 48px 28px 48px;">
 
-                  <!-- Icono 1: Comunidad / Personas -->
-                  <td align="center" valign="top" width="50%"
-                      style="padding: 10px 15px;">
+            <!-- Saludo personalizado -->
+            <!-- En Marketing Cloud: %%FirstName%% recupera el nombre del contacto -->
+            <p style="font-family: Arial, Helvetica, sans-serif;
+                      font-size: 16px;
+                      font-weight: bold;
+                      color: #1a1a1a;
+                      margin: 0 0 18px 0;">
+              Estimada %%FirstName%%,
+            </p>
 
+            <!-- Párrafo 1 -->
+            <p style="font-family: Arial, Helvetica, sans-serif;
+                      font-size: 15px;
+                      line-height: 1.7;
+                      color: #333333;
+                      margin: 0 0 16px 0;">
+              Nos alegra saber que sigues formando parte de esta comunidad que busca
+              transformar el mundo con compromiso, mirada crítica y sentido humano.
+            </p>
+
+            <!-- Párrafo 2 -->
+            <p style="font-family: Arial, Helvetica, sans-serif;
+                      font-size: 15px;
+                      line-height: 1.7;
+                      color: #333333;
+                      margin: 0 0 22px 0;
+                      text-align: center;">
+              Deseamos que este nuevo año venga acompañado de propósito,<br />
+              aprendizajes y bienestar para ti y tu familia.
+            </p>
+
+            <!-- Texto destacado en rojo -->
+            <p style="font-family: Arial, Helvetica, sans-serif;
+                      font-size: 15px;
+                      font-weight: bold;
+                      color: #A31F2D;
+                      text-align: center;
+                      margin: 0 0 30px 0;">
+              Gracias por seguir siendo parte de la IBERO.
+            </p>
+
+            <!-- Imagen de la firma -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding-bottom: 14px;">
+                  <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/52b55ff2-725a-44e9-a96f-34737f946eec.png"
+                       alt="Firma"
+                       width="220"
+                       style="width: 220px; max-width: 100%; height: auto;" />
+                </td>
+              </tr>
+            </table>
+
+            <!-- Texto de cierre -->
+            <p style="font-family: Arial, Helvetica, sans-serif;
+                      font-size: 14px;
+                      color: #555555;
+                      text-align: center;
+                      margin: 0 0 4px 0;">
+              Con aprecio,
+            </p>
+            <p style="font-family: Arial, Helvetica, sans-serif;
+                      font-size: 15px;
+                      font-weight: bold;
+                      color: #1a1a1a;
+                      text-align: center;
+                      margin: 0;">
+              Comunidad de Egresadas y Egresados IBERO.
+            </p>
+
+          </td>
+        </tr>
+        <!-- FIN: Cuerpo del correo -->
+
+
+        <!-- ================================================== -->
+        <!--  4. SECCIÓN ÍCONOS CON BOTONES CTA                  -->
+        <!--     Fondo crema, dos cajas con icono, texto y botón -->
+        <!-- ================================================== -->
+        <tr>
+          <td bgcolor="#F2EDEA"
+              style="background-color: #F2EDEA; padding: 30px 24px;">
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+
+                <!-- ---- Caja 1: Comunidad / Personas ---- -->
+                <td class="col-half" valign="top" width="48%"
+                    style="background-color: #ffffff;
+                           border: 1px solid #e0d8d3;
+                           padding: 24px 16px;
+                           text-align: center;">
+
+                  <!-- Ícono personas -->
+                  <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/3b6b5f2c-3b18-45aa-a48e-47b9e16ee5df.png"
+                       alt="Comunidad"
+                       width="54"
+                       style="width: 54px; height: auto; margin: 0 auto 12px auto;" />
+
+                  <!-- Texto de la caja 1 -->
+                  <p style="font-family: Arial, Helvetica, sans-serif;
+                            font-size: 13px;
+                            color: #444444;
+                            line-height: 1.5;
+                            margin: 0 0 18px 0;">
+                    Sigamos en contacto
+                  </p>
+
+                  <!-- Botón CTA 1 (compatible con Outlook mediante tabla) -->
+                  <table role="presentation" align="center" cellpadding="0"
+                         cellspacing="0" border="0">
+                    <tr>
+                      <td bgcolor="#A31F2D"
+                          style="background-color: #A31F2D; border-radius: 3px; mso-padding-alt: 0px;">
+                        <a href="%%ACTUALIZAR_URL%%"
+                           target="_blank"
+                           style="display: inline-block;
+                                  font-family: Arial, Helvetica, sans-serif;
+                                  font-size: 11px;
+                                  font-weight: bold;
+                                  color: #ffffff;
+                                  text-decoration: none;
+                                  letter-spacing: 0.8px;
+                                  padding: 10px 16px;
+                                  mso-padding-alt: 10px 16px;">
+                          <!--[if mso]>&nbsp;<![endif]-->
+                          ACTUALIZAR INFORMACIÓN
+                          <!--[if mso]>&nbsp;<![endif]-->
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- FIN: Botón CTA 1 -->
+
+                </td>
+                <!-- FIN: Caja 1 -->
+
+                <!-- Espaciado entre cajas -->
+                <td width="4%" style="font-size: 0; line-height: 0;">&nbsp;</td>
+
+                <!-- ---- Caja 2: Portal / Credencial ---- -->
+                <td class="col-half" valign="top" width="48%"
+                    style="background-color: #ffffff;
+                           border: 1px solid #e0d8d3;
+                           padding: 24px 16px;
+                           text-align: center;">
+
+                  <!-- Ícono credencial -->
+                  <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/25e07ab2-a070-4930-b1b5-46d6e454aac9.png"
+                       alt="Portal IBERO"
+                       width="54"
+                       style="width: 54px; height: auto; margin: 0 auto 12px auto;" />
+
+                  <!-- Texto de la caja 2 -->
+                  <p style="font-family: Arial, Helvetica, sans-serif;
+                            font-size: 13px;
+                            color: #444444;
+                            line-height: 1.5;
+                            margin: 0 0 18px 0;">
+                    Descubre actividades,<br />noticias y oportunidades
+                  </p>
+
+                  <!-- Botón CTA 2 -->
+                  <table role="presentation" align="center" cellpadding="0"
+                         cellspacing="0" border="0">
+                    <tr>
+                      <td bgcolor="#A31F2D"
+                          style="background-color: #A31F2D; border-radius: 3px; mso-padding-alt: 0px;">
+                        <a href="%%PORTAL_URL%%"
+                           target="_blank"
+                           style="display: inline-block;
+                                  font-family: Arial, Helvetica, sans-serif;
+                                  font-size: 11px;
+                                  font-weight: bold;
+                                  color: #ffffff;
+                                  text-decoration: none;
+                                  letter-spacing: 0.8px;
+                                  padding: 10px 16px;
+                                  mso-padding-alt: 10px 16px;">
+                          <!--[if mso]>&nbsp;<![endif]-->
+                          VISITA NUESTRO PORTAL
+                          <!--[if mso]>&nbsp;<![endif]-->
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- FIN: Botón CTA 2 -->
+
+                </td>
+                <!-- FIN: Caja 2 -->
+
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+        <!-- FIN: Sección íconos -->
+
+
+        <!-- ================================================== -->
+        <!--  5. FOOTER: Fondo oscuro con redes y datos          -->
+        <!-- ================================================== -->
+        <tr>
+          <td bgcolor="#1C1C1C"
+              style="background-color: #1C1C1C; padding: 30px 24px 24px 24px;">
+
+            <!-- Tagline SOMOS IBERO -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding-bottom: 20px;">
+                  <p style="font-family: Arial, Helvetica, sans-serif;
+                            font-size: 13px;
+                            font-weight: bold;
+                            letter-spacing: 1.5px;
+                            color: #ffffff;
+                            margin: 0;">
+                    SOMOS IBERO,&nbsp;
+                    <span style="color: #C9303D;">SOMOS COMUNIDAD</span>
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Íconos de redes sociales -->
+            <!-- Cada ícono es una celda de tabla con fondo oscuro y borde circular -->
+            <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0"
+                   style="margin: 0 auto 20px auto;">
+              <tr>
+
+                <!-- Facebook -->
+                <td style="padding: 0 6px;">
+                  <a href="https://www.facebook.com/IberoEgresados" target="_blank"
+                     style="text-decoration: none;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                       <tr>
-                        <td align="center" style="padding-bottom: 10px;">
-                          <!-- Imagen del ícono de personas -->
-                          <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/3b6b5f2c-3b18-45aa-a48e-47b9e16ee5df.png"
-                               alt="Comunidad de Egresados"
-                               width="70"
-                               style="display: block; width: 70px; height: auto; margin: 0 auto;" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="center"
-                            style="font-family: Arial, Helvetica, sans-serif;
+                        <td width="36" height="36" align="center" valign="middle"
+                            bgcolor="#3B3B3B"
+                            style="background-color: #3B3B3B;
+                                   border-radius: 50%;
+                                   width: 36px;
+                                   height: 36px;
+                                   font-family: Arial, Helvetica, sans-serif;
                                    font-size: 14px;
-                                   color: #333333;
-                                   line-height: 1.5;">
-                          <!-- Texto descriptivo del ícono 1 -->
-                          Conectarte con la<br />
-                          <strong style="color: #8B0000;">Comunidad Ibero</strong>
+                                   font-weight: bold;
+                                   color: #ffffff;
+                                   text-align: center;">
+                          f
                         </td>
                       </tr>
                     </table>
+                  </a>
+                </td>
 
-                  </td>
-                  <!-- FIN: Icono 1 -->
-
-                  <!-- Separador vertical (visible solo en desktop) -->
-                  <td width="1" style="background-color: #dddddd;">&nbsp;</td>
-
-                  <!-- Icono 2: Credencial -->
-                  <td align="center" valign="top" width="50%"
-                      style="padding: 10px 15px;">
-
+                <!-- Instagram -->
+                <td style="padding: 0 6px;">
+                  <a href="https://www.instagram.com/iberoegresados" target="_blank"
+                     style="text-decoration: none;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                       <tr>
-                        <td align="center" style="padding-bottom: 10px;">
-                          <!-- Imagen del ícono de credencial -->
-                          <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/25e07ab2-a070-4930-b1b5-46d6e454aac9.png"
-                               alt="Credencial de Egresado"
-                               width="70"
-                               style="display: block; width: 70px; height: auto; margin: 0 auto;" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="center"
-                            style="font-family: Arial, Helvetica, sans-serif;
-                                   font-size: 14px;
-                                   color: #333333;
-                                   line-height: 1.5;">
-                          <!-- Texto descriptivo del ícono 2 -->
-                          Obtener tu<br />
-                          <strong style="color: #8B0000;">Credencial de Egresado</strong>
+                        <td width="36" height="36" align="center" valign="middle"
+                            bgcolor="#3B3B3B"
+                            style="background-color: #3B3B3B;
+                                   border-radius: 50%;
+                                   width: 36px;
+                                   height: 36px;
+                                   font-family: Arial, Helvetica, sans-serif;
+                                   font-size: 13px;
+                                   font-weight: bold;
+                                   color: #ffffff;
+                                   text-align: center;">
+                          in
                         </td>
                       </tr>
                     </table>
+                  </a>
+                </td>
 
-                  </td>
-                  <!-- FIN: Icono 2 -->
+                <!-- LinkedIn -->
+                <td style="padding: 0 6px;">
+                  <a href="https://www.linkedin.com/school/universidad-iberoamericana" target="_blank"
+                     style="text-decoration: none;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="36" height="36" align="center" valign="middle"
+                            bgcolor="#3B3B3B"
+                            style="background-color: #3B3B3B;
+                                   border-radius: 50%;
+                                   width: 36px;
+                                   height: 36px;
+                                   font-family: Arial, Helvetica, sans-serif;
+                                   font-size: 12px;
+                                   font-weight: bold;
+                                   color: #ffffff;
+                                   text-align: center;">
+                          in
+                        </td>
+                      </tr>
+                    </table>
+                  </a>
+                </td>
 
-                </tr>
-              </table>
+                <!-- YouTube -->
+                <td style="padding: 0 6px;">
+                  <a href="https://www.youtube.com/IberoMexico" target="_blank"
+                     style="text-decoration: none;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="36" height="36" align="center" valign="middle"
+                            bgcolor="#3B3B3B"
+                            style="background-color: #3B3B3B;
+                                   border-radius: 50%;
+                                   width: 36px;
+                                   height: 36px;
+                                   font-family: Arial, Helvetica, sans-serif;
+                                   font-size: 12px;
+                                   font-weight: bold;
+                                   color: #ffffff;
+                                   text-align: center;">
+                          yt
+                        </td>
+                      </tr>
+                    </table>
+                  </a>
+                </td>
 
-            </td>
-          </tr>
-          <!-- FIN: Sección de iconos -->
+              </tr>
+            </table>
+            <!-- FIN: Íconos redes sociales -->
 
+            <!-- Separador -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td height="1" bgcolor="#3B3B3B"
+                    style="background-color: #3B3B3B; font-size: 0; line-height: 0; margin: 0 0 16px 0;">
+                </td>
+              </tr>
+            </table>
 
-          <!-- ================================================ -->
-          <!-- 4. SEPARADOR                                       -->
-          <!-- ================================================ -->
-          <tr>
-            <td style="padding: 0 30px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td height="1" style="background-color: #dddddd; font-size: 0; line-height: 0;">&nbsp;</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <!-- FIN: Separador -->
+            <!-- Datos institucionales -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding-top: 16px;">
 
+                  <!-- Nombre del área -->
+                  <p style="font-family: Arial, Helvetica, sans-serif;
+                            font-size: 12px;
+                            font-weight: bold;
+                            color: #ffffff;
+                            margin: 0 0 4px 0;">
+                    Dirección de Egresadas y Egresados IBERO
+                  </p>
 
-          <!-- ================================================ -->
-          <!-- 5. FIRMA                                           -->
-          <!-- ================================================ -->
-          <tr>
-            <td align="center" style="padding: 25px 30px 30px 30px;">
-              <img src="https://image.contactoibero.mx/lib/fe3811727364047c711475/m/1/52b55ff2-725a-44e9-a96f-34737f946eec.png"
-                   alt="Firma - Dirección de Egresados Ibero"
-                   width="300"
-                   style="display: block; width: 100%; max-width: 300px; height: auto; margin: 0 auto;" />
-            </td>
-          </tr>
-          <!-- FIN: Firma -->
+                  <!-- Correo institucional -->
+                  <p style="margin: 0 0 8px 0;">
+                    <a href="mailto:egresados@ibero.mx"
+                       style="font-family: Arial, Helvetica, sans-serif;
+                              font-size: 12px;
+                              color: #C9303D;
+                              text-decoration: none;">
+                      egresados@ibero.mx
+                    </a>
+                  </p>
 
+                  <!-- Dirección física -->
+                  <p style="font-family: Arial, Helvetica, sans-serif;
+                            font-size: 11px;
+                            color: #999999;
+                            line-height: 1.6;
+                            margin: 0 0 14px 0;">
+                    Prof. Paseo de la Reforma 880, Lomas de Santa Fe,<br />
+                    Alcaldía Álvaro Obregón, C.P. 01219, Ciudad de México.
+                  </p>
 
-          <!-- ================================================ -->
-          <!-- 6. PIE DE PÁGINA / FOOTER                         -->
-          <!-- ================================================ -->
-          <tr>
-            <td style="background-color: #8B0000; padding: 15px 20px;">
-
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <!-- Texto legal del footer -->
-                  <td align="center"
-                      style="font-family: Arial, Helvetica, sans-serif;
-                             font-size: 11px;
-                             color: #ffffff;
-                             line-height: 1.6;">
-
-                    Universidad Iberoamericana Ciudad de México<br />
-                    Prolongación Paseo de la Reforma 880, Lomas de Santa Fe,<br />
-                    C.P. 01219, Ciudad de México.<br /><br />
-
-                    <!-- Enlace para cancelar suscripción (requerido por Marketing Cloud) -->
-                    Si no deseas recibir más correos,
+                  <!-- Link para cancelar suscripción (OBLIGATORIO en Marketing Cloud) -->
+                  <p style="font-family: Arial, Helvetica, sans-serif;
+                            font-size: 10px;
+                            color: #777777;
+                            margin: 0;">
+                    Si no deseas recibir más mensajes,
                     <a href="%%subscription_center_url%%"
-                       style="color: #ffffff; text-decoration: underline;">
+                       style="color: #999999; text-decoration: underline;">
                       cancela tu suscripción aquí
                     </a>.
+                  </p>
 
-                  </td>
-                </tr>
-              </table>
+                </td>
+              </tr>
+            </table>
+            <!-- FIN: Datos institucionales -->
 
-            </td>
-          </tr>
-          <!-- FIN: Footer -->
+          </td>
+        </tr>
+        <!-- FIN: Footer -->
 
 
-        </table>
-        <!-- FIN: Caja principal del correo -->
+      </table>
+      <!-- FIN: Contenedor principal del correo -->
 
-      </td>
-    </tr>
-  </table>
-  <!-- FIN: Tabla contenedor principal -->
+
+    </td>
+  </tr>
+</table>
+<!-- FIN: Tabla wrapper exterior -->
 
 </body>
 </html>
