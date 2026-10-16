@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { api } from '../lib/cliente';
 import { describir, ordenar, puedeEditar, resumenDelDia, siestaAbierta } from '../lib/bitacora';
-import { duracion, hora12, horaActualCDMX, hoyCDMX, nombreDia, sumarDias, fechaLarga } from '../lib/fechas';
+import { duracion, hora12, horaActualCDMX, hoyCDMX, nombreDia, sumarDias, fechaLarga, redondearMediaHora, horaCorta } from '../lib/fechas';
 import { mensajeError } from '../lib/errores';
 import { TIPOS, infoTipo, type Nino, type Registro, type Rol, type TipoRegistro } from '../lib/tipos';
 import { Aviso, BotonConfirmar, Cargando } from './comunes';
@@ -52,7 +52,10 @@ export function DiaVista({ nino, rol }: { nino: Nino; rol: Rol }) {
   async function yaDesperto(r: Registro) {
     setError(null);
     try {
-      await api.actualizarRegistro(r.id, { datos: { ...r.datos, desperto: horaActualCDMX() } });
+      // Media hora más cercana hacia abajo, sin quedar antes de que se durmiera.
+      const ahora = redondearMediaHora(horaActualCDMX());
+      const inicio = horaCorta(r.hora);
+      await api.actualizarRegistro(r.id, { datos: { ...r.datos, desperto: ahora < inicio ? inicio : ahora } });
       await cargar();
     } catch (err) {
       setError(mensajeError(err));
@@ -141,7 +144,12 @@ export function DiaVista({ nino, rol }: { nino: Nino; rol: Rol }) {
                 </span>
                 <div className="evento-cuerpo">
                   <p className="evento-meta">
-                    <time>{hora12(r.hora)}</time> · {info.nombre}
+                    {r.tipo !== 'animo' && (
+                      <>
+                        <time>{hora12(r.hora)}</time> ·{' '}
+                      </>
+                    )}
+                    {info.nombre}
                   </p>
                   <p className="evento-titulo">{titulo}</p>
                   {detalles.map((d, i) => (
@@ -160,14 +168,14 @@ export function DiaVista({ nino, rol }: { nino: Nino; rol: Rol }) {
                         type="button"
                         className="boton-chico"
                         onClick={() => setHoja({ tipo: r.tipo, registro: r })}
-                        aria-label={`Editar ${info.nombre.toLowerCase()} de las ${hora12(r.hora)}`}
+                        aria-label={`Editar ${info.nombre.toLowerCase()}${r.tipo !== 'animo' ? ` de las ${hora12(r.hora)}` : ''}`}
                       >
                         Editar
                       </button>
                       <BotonConfirmar
                         texto="Quitar"
                         confirmar="¿Quitar? Toca otra vez"
-                        etiqueta={`Quitar ${info.nombre.toLowerCase()} de las ${hora12(r.hora)}`}
+                        etiqueta={`Quitar ${info.nombre.toLowerCase()}${r.tipo !== 'animo' ? ` de las ${hora12(r.hora)}` : ''}`}
                         onConfirmar={() => quitar(r)}
                       />
                     </div>

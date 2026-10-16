@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { createPortal } from 'react-dom';
-import { horaActualCDMX, horaCorta } from '../lib/fechas';
+import { horaActualCDMX, horaCorta, redondearMediaHora } from '../lib/fechas';
 import { mensajeError } from '../lib/errores';
 import {
   ANIMOS,
@@ -14,12 +14,13 @@ import {
   type Registro,
   type TipoRegistro,
 } from '../lib/tipos';
-import { Aviso, Campo, Opciones } from './comunes';
+import { Aviso, Campo, Opciones, SelectorHora } from './comunes';
 
 type Valores = Record<string, string>;
 
-function valoresIniciales(registro?: Registro): Valores {
-  if (!registro) return { hora: horaActualCDMX() };
+function valoresIniciales(tipo: TipoRegistro, registro?: Registro): Valores {
+  // El ánimo no pide hora: se guarda la hora exacta del registro, solo para ordenarlo.
+  if (!registro) return { hora: tipo === 'animo' ? horaActualCDMX() : redondearMediaHora(horaActualCDMX()) };
   const v: Valores = { hora: horaCorta(registro.hora) };
   for (const [k, val] of Object.entries(registro.datos)) {
     if (val !== null && val !== undefined) v[k] = String(val);
@@ -70,7 +71,7 @@ export function HojaRegistro({
   onCerrar: () => void;
 }) {
   const info = infoTipo(tipo);
-  const [v, setV] = useState<Valores>(() => valoresIniciales(registro));
+  const [v, setV] = useState<Valores>(() => valoresIniciales(tipo, registro));
   const [error, setError] = useState<string | null>(null);
   const [guardando, setGuardando] = useState(false);
   const hoja = useRef<HTMLDivElement>(null);
@@ -141,23 +142,20 @@ export function HojaRegistro({
                 <input type="text" value={v.que_comio ?? ''} onChange={(e) => cambiar('que_comio')(e.target.value)} autoComplete="off" />
               </Campo>
               <Opciones nombre="cuanto" leyenda="¿Cuánto comió?" opciones={CUANTO_COMIO} valor={v.cuanto} onCambio={cambiar('cuanto')} permitirVacio />
-              <Campo etiqueta="Hora">
-                <input type="time" value={v.hora} onChange={(e) => cambiar('hora')(e.target.value)} required />
-              </Campo>
+              <SelectorHora etiqueta="Hora" valor={v.hora} onCambio={cambiar('hora')} />
             </>
           )}
 
           {tipo === 'siesta' && (
             <>
-              <div className="fila-campos">
-                <Campo etiqueta="Se durmió a las">
-                  <input type="time" value={v.hora} onChange={(e) => cambiar('hora')(e.target.value)} required />
-                </Campo>
-                <Campo etiqueta="Despertó a las" opcional>
-                  <input type="time" value={v.desperto ?? ''} onChange={(e) => cambiar('desperto')(e.target.value)} />
-                </Campo>
-              </div>
-              <p className="ayuda">Si sigue dormido, deja vacía la hora de despertar. Podrás cerrarla con "Ya despertó".</p>
+              <SelectorHora etiqueta="Se durmió a las" valor={v.hora} onCambio={cambiar('hora')} />
+              <SelectorHora
+                etiqueta="Despertó a las"
+                valor={v.desperto ?? ''}
+                onCambio={cambiar('desperto')}
+                textoVacio="Sigue dormido"
+              />
+              <p className="ayuda">Si sigue dormido, déjalo así. Podrás cerrarla con "Ya despertó".</p>
               <Opciones nombre="como" leyenda="¿Cómo durmió?" opciones={COMO_DURMIO} valor={v.como} onCambio={cambiar('como')} permitirVacio />
             </>
           )}
@@ -168,9 +166,7 @@ export function HojaRegistro({
               <Campo etiqueta="Notas" opcional>
                 <textarea rows={2} value={v.notas ?? ''} onChange={(e) => cambiar('notas')(e.target.value)} />
               </Campo>
-              <Campo etiqueta="Hora">
-                <input type="time" value={v.hora} onChange={(e) => cambiar('hora')(e.target.value)} required />
-              </Campo>
+              <SelectorHora etiqueta="Hora" valor={v.hora} onCambio={cambiar('hora')} />
             </>
           )}
 
@@ -189,9 +185,6 @@ export function HojaRegistro({
               <Campo etiqueta="Salud y medicamentos" opcional>
                 <textarea rows={2} value={v.salud ?? ''} onChange={(e) => cambiar('salud')(e.target.value)} />
               </Campo>
-              <Campo etiqueta="Hora">
-                <input type="time" value={v.hora} onChange={(e) => cambiar('hora')(e.target.value)} required />
-              </Campo>
             </>
           )}
 
@@ -203,9 +196,7 @@ export function HojaRegistro({
               <Campo etiqueta="¿Cómo le fue?" opcional>
                 <textarea rows={2} value={v.como_le_fue ?? ''} onChange={(e) => cambiar('como_le_fue')(e.target.value)} />
               </Campo>
-              <Campo etiqueta="Hora">
-                <input type="time" value={v.hora} onChange={(e) => cambiar('hora')(e.target.value)} required />
-              </Campo>
+              <SelectorHora etiqueta="Hora" valor={v.hora} onCambio={cambiar('hora')} />
             </>
           )}
 

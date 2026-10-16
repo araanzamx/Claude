@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { describir, ordenar, puedeEditar, resumenDelDia } from './bitacora';
-import { duracion, hora12, hoyCDMX, minutosEntre, nombreDia, sumarDias } from './fechas';
+import { duracion, hora12, horasDelDia, hoyCDMX, minutosEntre, moverHora, nombreDia, redondearMediaHora, sumarDias } from './fechas';
 import { armarDatos } from '../components/HojaRegistro';
 import type { Registro } from './tipos';
 
@@ -44,6 +44,32 @@ describe('fechas', () => {
     expect(nombreDia('2026-10-16', '2026-10-16')).toBe('Hoy');
     expect(nombreDia('2026-10-15', '2026-10-16')).toBe('Ayer');
     expect(nombreDia('2026-10-14', '2026-10-16')).toBe('miércoles, 14 de octubre');
+  });
+});
+
+describe('hora en medias horas', () => {
+  it('redondea hacia abajo a :00 o :30', () => {
+    expect(redondearMediaHora('14:47')).toBe('14:30');
+    expect(redondearMediaHora('14:29')).toBe('14:00');
+    expect(redondearMediaHora('00:00')).toBe('00:00');
+  });
+
+  it('sube y baja media hora sin salirse del día', () => {
+    expect(moverHora('08:00', 30)).toBe('08:30');
+    expect(moverHora('08:00', -30)).toBe('07:30');
+    expect(moverHora('00:00', -30)).toBe('00:00');
+    expect(moverHora('23:30', 30)).toBe('23:30');
+  });
+
+  it('acomoda una hora suelta de un registro anterior', () => {
+    expect(moverHora('08:15', -30)).toBe('08:00');
+    expect(moverHora('08:15', 30)).toBe('08:30');
+  });
+
+  it('ofrece 48 horas al día y conserva una hora suelta', () => {
+    expect(horasDelDia()).toHaveLength(48);
+    expect(horasDelDia('08:15')).toContain('08:15');
+    expect(horasDelDia('08:15')).toHaveLength(49);
   });
 });
 
