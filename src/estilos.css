@@ -1,33 +1,50 @@
-/* Identidad del prototipo (SPEC.md §9): lila muy claro, morado oscuro, acento #4B3A8C,
-   un color por tipo de registro. Móvil primero, modo claro y oscuro. */
+/* Colores de la marca Upper Nannies: coral #f46c60, amarillo #ffd230, azul marino #053b84,
+   rosa #ffb5b3 y turquesa #0499b4. Un color de marca por tipo de registro.
+   Cada tipo tiene cuatro tonos:
+     --x        color de marca (puntos, bordes, botones llenos)
+     --x-tinta  versión oscura para texto, con contraste legible (4.5:1 o más)
+     --x-suave  fondo claro
+     --x-sobre  texto encima del color de marca
+   Móvil primero, modo claro y oscuro. */
 
 :root {
   color-scheme: light dark;
-  --fondo: #f6f2fc;
+  --fondo: #fff8f7;
   --superficie: #ffffff;
-  --superficie-2: #efe9f9;
-  --texto: #2a1f4d;
-  --texto-suave: #5e5480;
-  --acento: #4b3a8c;
+  --superficie-2: #fdeeed;
+  --texto: #0b2550;
+  --texto-suave: #4a5b7d;
+  --acento: #053b84;
   --acento-texto: #ffffff;
-  --acento-suave: #e6e0f5;
-  --borde: #e1d8f1;
-  --peligro: #b42344;
-  --peligro-suave: #fde8ed;
-  --exito: #1f7a4d;
-  --exito-suave: #e3f4ea;
-  --sombra: 0 1px 2px rgb(42 31 77 / 6%), 0 4px 16px rgb(42 31 77 / 8%);
+  --acento-suave: #e1ecfc;
+  --borde: #f3dedd;
+  --peligro: #b3261e;
+  --peligro-suave: #fde4e1;
+  --exito: #03708a;
+  --exito-suave: #d9f3f8;
+  --aviso-suave: #fff4c7;
+  --sombra: 0 1px 2px rgb(5 59 132 / 6%), 0 4px 16px rgb(5 59 132 / 8%);
 
-  --comida: #2e8b57;
-  --comida-suave: #e3f4ea;
-  --siesta: #4f46e5;
-  --siesta-suave: #e7e6fb;
-  --bano: #0277b6;
-  --bano-suave: #e0f2fe;
-  --animo: #c81e6c;
-  --animo-suave: #fce7f3;
-  --actividad: #b45309;
-  --actividad-suave: #fef3c7;
+  --comida: #f46c60;
+  --comida-tinta: #b8382d;
+  --comida-suave: #fde4e1;
+  --comida-sobre: #061633;
+  --siesta: #053b84;
+  --siesta-tinta: #053b84;
+  --siesta-suave: #e1ecfc;
+  --siesta-sobre: #ffffff;
+  --bano: #0499b4;
+  --bano-tinta: #03708a;
+  --bano-suave: #d9f3f8;
+  --bano-sobre: #061633;
+  --animo: #ffb5b3;
+  --animo-tinta: #b23a55;
+  --animo-suave: #ffe9e8;
+  --animo-sobre: #061633;
+  --actividad: #ffd230;
+  --actividad-tinta: #856000;
+  --actividad-suave: #fff4c7;
+  --actividad-sobre: #061633;
 
   --radio: 16px;
   --titulos: 'Bricolage Grotesque', system-ui, sans-serif;
@@ -37,31 +54,38 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fondo: #15102a;
-    --superficie: #201a3a;
-    --superficie-2: #2a2349;
-    --texto: #eee9fb;
-    --texto-suave: #b8aed9;
-    --acento: #b3a6f0;
-    --acento-texto: #15102a;
-    --acento-suave: #332a5a;
-    --borde: #3a3163;
-    --peligro: #ff8fa6;
-    --peligro-suave: #3d1a2a;
-    --exito: #7fdcaa;
-    --exito-suave: #173527;
+    --fondo: #061633;
+    --superficie: #0c2249;
+    --superficie-2: #12305e;
+    --texto: #f2f5fc;
+    --texto-suave: #aebbd6;
+    --acento: #ffd230;
+    --acento-texto: #061633;
+    --acento-suave: #1a3566;
+    --borde: #1f3c6e;
+    --peligro: #ff8f88;
+    --peligro-suave: #3a1a24;
+    --exito: #38c3dc;
+    --exito-suave: #0b3445;
+    --aviso-suave: #3a3210;
     --sombra: 0 1px 2px rgb(0 0 0 / 30%), 0 4px 16px rgb(0 0 0 / 30%);
 
-    --comida: #6fdca0;
-    --comida-suave: #173527;
-    --siesta: #a5a0ff;
-    --siesta-suave: #262463;
-    --bano: #6cc7f5;
-    --bano-suave: #12324a;
-    --animo: #f58ac0;
-    --animo-suave: #45173a;
-    --actividad: #f5b85a;
-    --actividad-suave: #42300f;
+    --comida: #f8877d;
+    --comida-tinta: #f8877d;
+    --comida-suave: #3a1f2a;
+    --siesta: #8db6f2;
+    --siesta-tinta: #8db6f2;
+    --siesta-suave: #15336a;
+    --siesta-sobre: #061633;
+    --bano: #38c3dc;
+    --bano-tinta: #38c3dc;
+    --bano-suave: #0b3445;
+    --animo: #ffb5b3;
+    --animo-tinta: #ffb5b3;
+    --animo-suave: #3d2236;
+    --actividad: #ffd230;
+    --actividad-tinta: #ffd230;
+    --actividad-suave: #3a3210;
   }
 }
 
@@ -164,7 +188,7 @@ button:disabled {
 .boton-chico.destacado {
   background: var(--siesta);
   border-color: var(--siesta);
-  color: var(--superficie);
+  color: var(--siesta-sobre);
 }
 .boton-chico.peligro {
   color: var(--peligro);
@@ -288,7 +312,7 @@ textarea {
 .chip input:checked + span {
   background: var(--color-tipo, var(--acento));
   border-color: var(--color-tipo, var(--acento));
-  color: var(--superficie);
+  color: var(--color-sobre, var(--acento-texto));
 }
 .chip input:focus-visible + span {
   outline: 3px solid var(--acento);
@@ -345,7 +369,7 @@ textarea {
 .banda-demo {
   margin: 0;
   padding: 8px 16px;
-  background: var(--actividad-suave);
+  background: var(--aviso-suave);
   color: var(--texto);
   font-size: 0.85rem;
   text-align: center;
@@ -516,7 +540,7 @@ textarea {
   font-family: var(--titulos);
   font-weight: 700;
   font-size: 1.05rem;
-  color: var(--color-tipo);
+  color: var(--color-tinta);
   overflow-wrap: break-word;
 }
 
@@ -529,22 +553,32 @@ textarea {
 /* Colores por tipo */
 .tipo-comida {
   --color-tipo: var(--comida);
+  --color-tinta: var(--comida-tinta);
+  --color-sobre: var(--comida-sobre);
   --color-suave: var(--comida-suave);
 }
 .tipo-siesta {
   --color-tipo: var(--siesta);
+  --color-tinta: var(--siesta-tinta);
+  --color-sobre: var(--siesta-sobre);
   --color-suave: var(--siesta-suave);
 }
 .tipo-bano {
   --color-tipo: var(--bano);
+  --color-tinta: var(--bano-tinta);
+  --color-sobre: var(--bano-sobre);
   --color-suave: var(--bano-suave);
 }
 .tipo-animo {
   --color-tipo: var(--animo);
+  --color-tinta: var(--animo-tinta);
+  --color-sobre: var(--animo-sobre);
   --color-suave: var(--animo-suave);
 }
 .tipo-actividad {
   --color-tipo: var(--actividad);
+  --color-tinta: var(--actividad-tinta);
+  --color-sobre: var(--actividad-sobre);
   --color-suave: var(--actividad-suave);
 }
 
@@ -609,7 +643,7 @@ textarea {
   font-weight: 600;
 }
 .evento-meta time {
-  color: var(--color-tipo);
+  color: var(--color-tinta);
   font-weight: 800;
 }
 .evento-titulo {
