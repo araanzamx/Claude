@@ -7,6 +7,20 @@
      --x-sobre  texto encima del color de marca
    Móvil primero, modo claro y oscuro. */
 
+/* Glacial Indifference (SIL Open Font License, ver public/fuentes). */
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('/fuentes/glacial-indifference-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('/fuentes/glacial-indifference-700.woff2') format('woff2');
+  font-weight: 600 800;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light dark;
   --fondo: #fff8f7;
@@ -47,8 +61,11 @@
   --actividad-sobre: #061633;
 
   --radio: 16px;
-  --titulos: 'Fredoka', system-ui, sans-serif;
-  --cuerpo: 'Nunito', system-ui, sans-serif;
+  /* Manual de marca: Comfortaa Bold (títulos), Cocomat Pro (subtítulos) y Glacial
+     Indifference (textos). Cocomat Pro es de pago; Quicksand es su sustituta libre. */
+  --titulos: 'Comfortaa', system-ui, sans-serif;
+  --subtitulos: 'Quicksand', system-ui, sans-serif;
+  --cuerpo: 'Glacial Indifference', system-ui, sans-serif;
   --alto-barra: 76px;
 }
 
@@ -112,7 +129,8 @@ h1,
 h2,
 h3 {
   font-family: var(--titulos);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   line-height: 1.15;
   margin: 0 0 0.4em;
 }
@@ -123,6 +141,7 @@ h2 {
   font-size: 1.25rem;
 }
 h3 {
+  font-family: var(--subtitulos);
   font-size: 1rem;
   margin-top: 1.2em;
   color: var(--texto-suave);
@@ -398,6 +417,16 @@ textarea {
   background: var(--superficie);
   border-bottom: 1px solid var(--borde);
 }
+.logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  margin: 4px 0;
+}
+.logo-grande {
+  height: 72px;
+  margin: 0 0 16px;
+}
 .marca {
   font-family: var(--titulos);
   font-weight: 700;
@@ -648,6 +677,7 @@ textarea {
   font-weight: 800;
 }
 .evento-titulo {
+  font-family: var(--subtitulos);
   margin: 2px 0;
   font-weight: 800;
   font-size: 1.05rem;

@@ -119,7 +119,8 @@ Colores de la marca Upper Nannies (reemplazan al lila y morado del prototipo):
 - Coral `#f46c60`, amarillo `#ffd230`, azul marino `#053b84`, rosa `#ffb5b3` y turquesa `#0499b4`.
 - Fondo rosa muy claro, texto azul marino oscuro y acento azul marino. En modo oscuro: fondo azul marino profundo y acento amarillo.
 - Un color de marca por tipo de registro: comida coral, siesta azul marino, baño turquesa, ánimo rosa, actividad amarillo. Para textos se usa una versión más oscura de cada color, con contraste legible.
-- Tipografías redondeadas y amigables: Fredoka para títulos y Nunito para texto.
+- Tipografías del manual de marca: Comfortaa Bold para títulos, Cocomat Pro para subtítulos (en la app, Quicksand como sustituta libre) y Glacial Indifference para textos.
+- Logo (`public/logo.png`) en la barra superior y en la pantalla de entrada.
 - Línea de tiempo vertical con un punto de color por registro. Es el elemento central de la interfaz.
 - Barra de captura fija abajo para la niñera.
 

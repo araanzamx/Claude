@@ -64,7 +64,7 @@ export function App() {
   return (
     <div className={`app rol-${perfil.rol}`}>
       <header className="barra-superior">
-        <p className="marca">Upper Nannies</p>
+        <img className="logo" src="/logo.png" alt="Upper Nannies" />
         <div className="usuario">
           <span>
             {perfil.nombre}

@@ -39,7 +39,7 @@ export function Acceso() {
   return (
     <main className="acceso">
       <div className="acceso-tarjeta">
-        <p className="marca">Upper Nannies</p>
+        <img className="logo logo-grande" src="/logo.png" alt="Upper Nannies" />
         <h1>Bitácora diaria</h1>
 
         {api.modoDemo ? (
