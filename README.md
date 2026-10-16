@@ -13,7 +13,9 @@ npm install
 npm run dev
 ```
 
-Abre http://localhost:5173 y entra como niñera, familia o administradora. Si abres dos pestañas (una como niñera y otra como familia), lo que registra la niñera aparece en vivo en la de la familia.
+Abre http://localhost:5173 y entra como niñera, familia o administradora.
+
+`npm run artefacto` arma la misma demostración en un solo archivo HTML (`dist-artefacto/`), listo para publicarse como página privada en claude.ai. Si abres dos pestañas (una como niñera y otra como familia), lo que registra la niñera aparece en vivo en la de la familia.
 
 ## Conectarla a Supabase (producción)
 

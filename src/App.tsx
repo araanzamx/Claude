@@ -6,6 +6,7 @@ import { Acceso } from './components/Acceso';
 import { Admin } from './components/Admin';
 import { Bitacora } from './components/Bitacora';
 import { Aviso, Cargando } from './components/comunes';
+import logo from './recursos/logo.png';
 
 export function App() {
   // undefined = todavía no sabemos; null = sin sesión / sin perfil.
@@ -64,7 +65,7 @@ export function App() {
   return (
     <div className={`app rol-${perfil.rol}`}>
       <header className="barra-superior">
-        <img className="logo" src="/logo.png" alt="Upper Nannies" />
+        <img className="logo" src={logo} alt="Upper Nannies" />
         <div className="usuario">
           <span>
             {perfil.nombre}

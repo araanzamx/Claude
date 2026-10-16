@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:db": "./scripts/test-db.sh",
-    "typecheck": "tsc -b"
+    "typecheck": "tsc -b",
+    "artefacto": "tsc -b && vite build --mode artefacto && node scripts/artefacto.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",

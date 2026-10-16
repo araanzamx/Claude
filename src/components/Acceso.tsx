@@ -6,6 +6,7 @@ import { api } from '../lib/cliente';
 import { USUARIOS_DEMO, reiniciarDemo } from '../lib/demoApi';
 import { mensajeError } from '../lib/errores';
 import { Aviso, Campo } from './comunes';
+import logo from '../recursos/logo.png';
 
 export function Acceso() {
   const [correo, setCorreo] = useState('');
@@ -39,7 +40,7 @@ export function Acceso() {
   return (
     <main className="acceso">
       <div className="acceso-tarjeta">
-        <img className="logo logo-grande" src="/logo.png" alt="Upper Nannies" />
+        <img className="logo logo-grande" src={logo} alt="Upper Nannies" />
         <h1>Bitácora diaria</h1>
 
         {api.modoDemo ? (

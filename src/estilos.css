@@ -7,16 +7,16 @@
      --x-sobre  texto encima del color de marca
    Móvil primero, modo claro y oscuro. */
 
-/* Glacial Indifference (SIL Open Font License, ver public/fuentes). */
+/* Glacial Indifference (SIL Open Font License, ver src/recursos/fuentes). */
 @font-face {
   font-family: 'Glacial Indifference';
-  src: url('/fuentes/glacial-indifference-400.woff2') format('woff2');
+  src: url('./recursos/fuentes/glacial-indifference-400.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: 'Glacial Indifference';
-  src: url('/fuentes/glacial-indifference-700.woff2') format('woff2');
+  src: url('./recursos/fuentes/glacial-indifference-700.woff2') format('woff2');
   font-weight: 600 800;
   font-display: swap;
 }
@@ -70,7 +70,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
     --fondo: #061633;
     --superficie: #0c2249;
     --superficie-2: #12305e;
@@ -104,6 +105,47 @@
     --actividad-tinta: #ffd230;
     --actividad-suave: #3a3210;
   }
+}
+
+/* Mismo modo oscuro cuando se elige a mano (data-theme), para que gane en ambos sentidos. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --fondo: #061633;
+  --superficie: #0c2249;
+  --superficie-2: #12305e;
+  --texto: #f2f5fc;
+  --texto-suave: #aebbd6;
+  --acento: #ffd230;
+  --acento-texto: #061633;
+  --acento-suave: #1a3566;
+  --borde: #1f3c6e;
+  --peligro: #ff8f88;
+  --peligro-suave: #3a1a24;
+  --exito: #38c3dc;
+  --exito-suave: #0b3445;
+  --aviso-suave: #3a3210;
+  --sombra: 0 1px 2px rgb(0 0 0 / 30%), 0 4px 16px rgb(0 0 0 / 30%);
+
+  --comida: #f8877d;
+  --comida-tinta: #f8877d;
+  --comida-suave: #3a1f2a;
+  --siesta: #8db6f2;
+  --siesta-tinta: #8db6f2;
+  --siesta-suave: #15336a;
+  --siesta-sobre: #061633;
+  --bano: #38c3dc;
+  --bano-tinta: #38c3dc;
+  --bano-suave: #0b3445;
+  --animo: #ffb5b3;
+  --animo-tinta: #ffb5b3;
+  --animo-suave: #3d2236;
+  --actividad: #ffd230;
+  --actividad-tinta: #ffd230;
+  --actividad-suave: #3a3210;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
 }
 
 * {
