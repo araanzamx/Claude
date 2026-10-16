@@ -117,3 +117,17 @@ export function horasDelDia(extra?: string | null): string[] {
   if (extra && !horas.includes(extra)) horas.push(extra);
   return horas.sort();
 }
+
+/** "2026-10-16" → { dia: "vie", numero: 16 } para la tira de días. */
+export function diaCorto(fecha: string): { dia: string; numero: number } {
+  const [a, m, d] = fecha.split('-').map(Number);
+  const dia = new Intl.DateTimeFormat('es-MX', { weekday: 'short', timeZone: 'UTC' })
+    .format(new Date(Date.UTC(a, m - 1, d)))
+    .replace('.', '');
+  return { dia, numero: d };
+}
+
+/** Los 7 días que terminan en `fin`, del más antiguo al más reciente. */
+export function semanaHasta(fin: string): string[] {
+  return Array.from({ length: 7 }, (_, i) => sumarDias(fin, i - 6));
+}

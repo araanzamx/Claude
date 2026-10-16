@@ -20,7 +20,7 @@ interface Estado {
   registros: Registro[];
 }
 
-const CLAVE_DATOS = 'upper-nannies-demo-v1';
+const CLAVE_DATOS = 'upper-nannies-demo-v2';
 const CLAVE_SESION = 'upper-nannies-demo-sesion';
 
 export const USUARIOS_DEMO = {
@@ -86,6 +86,17 @@ function estadoInicial(): Estado {
       reg(sofia, hoy, 'siesta', '13:10', {}),
       reg(sofia, ayer, 'siesta', '13:00', { desperto: '14:40', como: 'Tranquilo' }),
       reg(sofia, ayer, 'comida', '14:50', { momento: 'Comida', que_comio: 'Sopa de fideo y pollo', cuanto: 'Poco' }),
+      // Días anteriores, para ver el historial en la tira de días.
+      ...[2, 3, 4, 6, 8, 9].flatMap((hace) => {
+        const f = sumarDias(hoy, -hace);
+        return [
+          reg(sofia, f, 'comida', '08:30', { momento: 'Desayuno', que_comio: hace % 2 ? 'Hot cakes con fruta' : 'Huevo revuelto y tortilla', cuanto: hace % 3 ? 'Todo' : 'Casi todo' }),
+          reg(sofia, f, 'bano', '10:00', { que_paso: 'Pipí' }),
+          reg(sofia, f, 'actividad', '11:00', { que_hicieron: hace % 2 ? 'Paseo al parque' : 'Rompecabezas de animales', como_le_fue: 'Se divirtió mucho' }),
+          reg(sofia, f, 'siesta', '13:30', { desperto: hace % 2 ? '15:00' : '14:30', como: 'Tranquilo' }),
+          reg(sofia, f, 'animo', '16:00', { animo: hace === 4 ? 'Cansado' : 'Feliz' }),
+        ];
+      }),
       reg(mateo, hoy, 'comida', '08:30', { momento: 'Leche o biberón', que_comio: '180 ml', cuanto: 'Todo' }),
       reg(emilia, hoy, 'animo', '10:00', { animo: 'Tranquilo' }),
     ],
@@ -205,6 +216,13 @@ export function crearDemoApi(): Api {
       await espera();
       if (!puedeVer(ninoId)) return [];
       return estado.registros.filter((r) => r.nino_id === ninoId && r.fecha === fecha);
+    },
+    async fechasConRegistros(ninoId, desde, hasta) {
+      if (!puedeVer(ninoId)) return [];
+      const fechas = estado.registros
+        .filter((r) => r.nino_id === ninoId && r.fecha >= desde && r.fecha <= hasta)
+        .map((r) => r.fecha);
+      return [...new Set(fechas)];
     },
     async crearRegistro(r) {
       exigirEscritura(r.nino_id, r.fecha);

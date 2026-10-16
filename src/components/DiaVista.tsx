@@ -9,6 +9,7 @@ import { mensajeError } from '../lib/errores';
 import { TIPOS, infoTipo, type Nino, type Registro, type Rol, type TipoRegistro } from '../lib/tipos';
 import { Aviso, BotonConfirmar, Cargando } from './comunes';
 import { HojaRegistro } from './HojaRegistro';
+import { TiraDias } from './TiraDias';
 
 export function DiaVista({ nino, rol }: { nino: Nino; rol: Rol }) {
   const hoy = hoyCDMX();
@@ -78,30 +79,19 @@ export function DiaVista({ nino, rol }: { nino: Nino; rol: Rol }) {
         <div>
           <h1 id="titulo-dia">{nino.nombre}</h1>
           <p className="fecha" aria-live="polite">
-            {nombreDia(fecha, hoy)}
-            {fecha === hoy || fecha === sumarDias(hoy, -1) ? <span className="fecha-larga"> · {fechaLarga(fecha)}</span> : null}
+            {fecha === hoy || fecha === sumarDias(hoy, -1) ? (
+              <>
+                {nombreDia(fecha, hoy)}
+                <span className="fecha-larga"> · {fechaLarga(fecha)}</span>
+              </>
+            ) : (
+              <span className="fecha-capital">{fechaLarga(fecha)}</span>
+            )}
           </p>
         </div>
-        <nav className="nav-dias" aria-label="Cambiar de día">
-          <button type="button" className="boton-icono" onClick={() => setFecha(sumarDias(fecha, -1))} aria-label="Día anterior">
-            ‹
-          </button>
-          {fecha !== hoy && (
-            <button type="button" className="boton-chico" onClick={() => setFecha(hoy)}>
-              Hoy
-            </button>
-          )}
-          <button
-            type="button"
-            className="boton-icono"
-            onClick={() => setFecha(sumarDias(fecha, 1))}
-            disabled={fecha >= hoy}
-            aria-label="Día siguiente"
-          >
-            ›
-          </button>
-        </nav>
       </header>
+
+      <TiraDias ninoId={nino.id} fecha={fecha} hoy={hoy} onFecha={setFecha} version={registros} />
 
       <dl className="resumen" aria-label="Resumen del día">
         <div className="dato tipo-comida">

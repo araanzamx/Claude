@@ -609,6 +609,112 @@ textarea {
   align-items: center;
 }
 
+.fecha-capital::first-letter {
+  text-transform: uppercase;
+}
+
+/* Tira de días */
+.tira-dias {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+.tira-fila {
+  display: grid;
+  grid-template-columns: 36px 1fr 36px;
+  align-items: center;
+  gap: 4px;
+}
+.tira-fila .boton-icono {
+  width: 36px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 1.3rem;
+}
+.dias {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  min-width: 0;
+}
+.dia-boton {
+  width: 100%;
+  min-height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  border-radius: 14px;
+  border: 1px solid var(--borde);
+  background: var(--superficie);
+  padding: 4px 0;
+}
+.dia-boton:disabled {
+  opacity: 0.35;
+}
+.dia-nombre {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+.dia-numero {
+  font-family: var(--titulos);
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}
+.dia-punto {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+}
+.dia-punto.visible {
+  background: var(--comida);
+}
+.dia-boton.es-hoy .dia-nombre {
+  color: var(--acento);
+}
+.dia-boton[aria-pressed='true'] {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: var(--acento-texto);
+}
+.dia-boton[aria-pressed='true'] .dia-nombre {
+  color: var(--acento-texto);
+}
+.dia-boton[aria-pressed='true'] .dia-punto.visible {
+  background: var(--acento-texto);
+}
+.tira-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.otra-fecha {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.otra-fecha input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+}
+.otra-fecha:focus-within {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
 .resumen {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -637,7 +743,113 @@ textarea {
 }
 
 @media (max-width: 380px) {
-  .resumen {
+  .fecha-capital::first-letter {
+  text-transform: uppercase;
+}
+
+/* Tira de días */
+.tira-dias {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+.tira-fila {
+  display: grid;
+  grid-template-columns: 36px 1fr 36px;
+  align-items: center;
+  gap: 4px;
+}
+.tira-fila .boton-icono {
+  width: 36px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 1.3rem;
+}
+.dias {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  min-width: 0;
+}
+.dia-boton {
+  width: 100%;
+  min-height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  border-radius: 14px;
+  border: 1px solid var(--borde);
+  background: var(--superficie);
+  padding: 4px 0;
+}
+.dia-boton:disabled {
+  opacity: 0.35;
+}
+.dia-nombre {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+.dia-numero {
+  font-family: var(--titulos);
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}
+.dia-punto {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+}
+.dia-punto.visible {
+  background: var(--comida);
+}
+.dia-boton.es-hoy .dia-nombre {
+  color: var(--acento);
+}
+.dia-boton[aria-pressed='true'] {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: var(--acento-texto);
+}
+.dia-boton[aria-pressed='true'] .dia-nombre {
+  color: var(--acento-texto);
+}
+.dia-boton[aria-pressed='true'] .dia-punto.visible {
+  background: var(--acento-texto);
+}
+.tira-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.otra-fecha {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.otra-fecha input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+}
+.otra-fecha:focus-within {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+.resumen {
     grid-template-columns: repeat(2, 1fr);
   }
 }

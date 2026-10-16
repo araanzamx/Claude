@@ -34,6 +34,8 @@ export interface Api {
   ninos(): Promise<Nino[]>;
   familias(): Promise<Familia[]>;
   registros(ninoId: string, fecha: string): Promise<Registro[]>;
+  /** Fechas ("AAAA-MM-DD") entre `desde` y `hasta` que tienen al menos un registro. */
+  fechasConRegistros(ninoId: string, desde: string, hasta: string): Promise<string[]>;
   crearRegistro(r: NuevoRegistro): Promise<void>;
   actualizarRegistro(id: string, cambios: Partial<NuevoRegistro>): Promise<void>;
   quitarRegistro(id: string): Promise<void>;

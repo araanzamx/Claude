@@ -61,6 +61,13 @@ export function crearSupabaseApi(url: string, anonKey: string): Api {
       ) as Registro[];
     },
 
+    async fechasConRegistros(ninoId, desde, hasta) {
+      const filas = revisar(
+        await sb.from('registros').select('fecha').eq('nino_id', ninoId).gte('fecha', desde).lte('fecha', hasta),
+      ) as { fecha: string }[];
+      return [...new Set(filas.map((f) => f.fecha))];
+    },
+
     async crearRegistro(r) {
       revisar(await sb.from('registros').insert(r));
     },
