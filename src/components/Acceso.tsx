@@ -56,7 +56,7 @@ export function Acceso() {
                 Entrar como familia (Daniela García)
               </button>
               <button type="button" className="boton-secundario ancho" onClick={() => api.enviarEnlaceAcceso(USUARIOS_DEMO.admin)}>
-                Entrar como administradora (Aranza)
+                Entrar como administradora
               </button>
             </div>
             <p className="ayuda">

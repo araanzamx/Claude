@@ -47,8 +47,8 @@
   --actividad-sobre: #061633;
 
   --radio: 16px;
-  --titulos: 'Bricolage Grotesque', system-ui, sans-serif;
-  --cuerpo: 'Nunito Sans', system-ui, sans-serif;
+  --titulos: 'Fredoka', system-ui, sans-serif;
+  --cuerpo: 'Nunito', system-ui, sans-serif;
   --alto-barra: 76px;
 }
 
@@ -112,6 +112,7 @@ h1,
 h2,
 h3 {
   font-family: var(--titulos);
+  font-weight: 600;
   line-height: 1.15;
   margin: 0 0 0.4em;
 }
