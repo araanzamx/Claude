@@ -4,7 +4,7 @@
 
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(45);
+select plan(48);
 
 -- ---------------------------------------------------------------------------
 -- Datos de prueba (como superusuario, sin RLS)
@@ -205,6 +205,23 @@ select throws_ok(
     values ('00000000-0000-0000-0000-000000000a01', public.hoy_cdmx(), 'animo', '12:00', '{"animo": "Feliz"}')$$,
   '42501', null, 'niñera con asignación inactiva: no puede registrar');
 reset role;
+
+-- ---------------------------------------------------------------------------
+-- Niño dado de baja: la niñera pierde acceso, la familia conserva el historial
+-- ---------------------------------------------------------------------------
+
+update public.ninos set activo = false where id = '00000000-0000-0000-0000-000000000b01';
+set local role authenticated;
+set local request.jwt.claims to '{"sub": "00000000-0000-0000-0000-0000000000b2", "role": "authenticated"}';
+select is((select count(*) from public.ninos)::int, 0, 'niño dado de baja: ya no aparece a su niñera');
+select throws_ok(
+  $$insert into public.registros (nino_id, fecha, tipo, hora, datos)
+    values ('00000000-0000-0000-0000-000000000b01', public.hoy_cdmx(), 'animo', '12:00', '{"animo": "Feliz"}')$$,
+  '42501', null, 'niño dado de baja: su niñera ya no puede registrar');
+set local request.jwt.claims to '{"sub": "00000000-0000-0000-0000-0000000000f2", "role": "authenticated"}';
+select is((select count(*) from public.registros)::int, 1, 'niño dado de baja: su familia conserva el historial');
+reset role;
+update public.ninos set activo = true where id = '00000000-0000-0000-0000-000000000b01';
 
 -- ---------------------------------------------------------------------------
 -- Administradora: ve y edita todo

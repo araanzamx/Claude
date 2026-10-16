@@ -174,6 +174,7 @@ as $$
   )
 $$;
 
+-- Un niño dado de baja deja de aparecerle a la niñera; su familia conserva el historial.
 create or replace function public.cuida_a(p_nino_id uuid)
 returns boolean
 language sql
@@ -185,11 +186,13 @@ as $$
     select 1
     from public.asignaciones a
     join public.usuarios u on u.id = a.ninera_id
+    join public.ninos n on n.id = a.nino_id
     where a.nino_id = p_nino_id
       and a.ninera_id = auth.uid()
       and a.activo
       and u.activo
       and u.rol = 'ninera'
+      and n.activo
   )
 $$;
 

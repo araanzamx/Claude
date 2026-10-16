@@ -1,0 +1,35 @@
+# Configuración para el entorno local de Supabase (`supabase start`).
+# En el proyecto en la nube estos valores se ajustan desde el panel de Supabase.
+
+project_id = "upper-nannies"
+
+[api]
+port = 54321
+schemas = ["public"]
+
+[db]
+port = 54322
+major_version = 17
+
+[realtime]
+enabled = true
+
+[studio]
+port = 54323
+
+[inbucket]
+# Bandeja de correos de prueba: aquí llegan las invitaciones en local.
+port = 54324
+
+[auth]
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["http://localhost:5173"]
+# Nadie se registra solo: las cuentas se crean por invitación.
+enable_signup = false
+
+[auth.email]
+enable_signup = false
+enable_confirmations = false
+
+[functions.invitar]
+verify_jwt = true
